@@ -1,8 +1,8 @@
-import { useMemo } from "react";
 import Icon from "@mdi/react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import { mdiArrowLeft, mdiChevronRight } from "@mdi/js";
+
+
 
 const Container = styled.div`
     color: var(--theme-color-font, #000);
@@ -57,14 +57,15 @@ const CurrentItem = styled.div`
     font-size: 1.5rem;
 `;
 
+
+
 type BreadcrumbProps = {
     items: {[url:string]: string};
     current: string;
+    navigate?: (url:string, options: any) => void;
 };
 
-export const Breadcrumb:React.FC<BreadcrumbProps> = ({items, current}: BreadcrumbProps) => {
-
-    const navigate = useNavigate();
+export const Breadcrumb:React.FC<BreadcrumbProps> = ({items, current, navigate}: BreadcrumbProps) => {
 
     const handleGoBack = () => {
         if (!items) {
@@ -72,28 +73,28 @@ export const Breadcrumb:React.FC<BreadcrumbProps> = ({items, current}: Breadcrum
         }
 
         const urls = Object.keys(items);
-        navigate(urls[urls.length-1], {replace: true});
+        navigate && navigate(urls[urls.length-1], {replace: true});
     }
 
-    const renderPrevious = useMemo(() => {
+    const renderPrevious = () => {
         const itemsURLs = Object.keys(items);
 
         if (itemsURLs && itemsURLs.length) {
             return itemsURLs.map((url, index) => <PreviousItem key={index}>
-                <ItemValue onClick={()=>{navigate(url,{replace: true})}}>{items[url]}</ItemValue>
+                <ItemValue onClick={()=>{navigate && navigate(url,{replace: true})}}>{items[url]}</ItemValue>
                 <Icon path={mdiChevronRight} size={1} />
             </PreviousItem>)
         }
 
         return null;
-    },[items]);
+    };
 
     return <Container>
         <Button onClick={handleGoBack}>
             <Icon path={mdiArrowLeft} size={1} />
         </Button>
         <ItemsContent>
-            {renderPrevious}
+            {renderPrevious()}
             <CurrentItem>{current}</CurrentItem>
         </ItemsContent>
     </Container>

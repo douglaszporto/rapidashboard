@@ -7,6 +7,7 @@ type BreadcrumbProps = {
         [url: string]: string;
     };
     current: string;
+    navigate?: (url: string, options: any) => void;
 };
 declare const Breadcrumb: React.FC<BreadcrumbProps>;
 
