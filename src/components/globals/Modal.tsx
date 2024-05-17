@@ -1,25 +1,24 @@
-import { useSelector, useDispatch } from 'react-redux';
-
 import * as Tags from './styles';
 
 type ReactContent = JSX.Element | JSX.Element[] | undefined;
 
-export const Modal:React.FC<{onClose:Function}> = ({onClose}:{onClose:Function}) => {
+interface ModalProps {
+    content?: ReactContent;
+    show?: boolean;
+    onClose?: Function;
+}
 
-    const modalContent = useSelector<any, ReactContent>(s => s.modal.content);
-    const modalShow = useSelector<any>(s => s.modal.show);
-
-    const dispatch = useDispatch();
+export const Modal:React.FC<ModalProps> = ({content, show, onClose}:ModalProps) => {
 
     const handleClose = () => {
-        dispatch(onClose());
+        onClose && onClose();
     }
 
     return <>
-        <Tags.Modal className={modalShow ? 'active' : ''}>
-            {modalContent}
+        <Tags.Modal className={show ? 'active' : ''}>
+            {content ?? <></>}
         </Tags.Modal>
-        <Tags.Background className={modalShow ? 'active' : ''} onClick={handleClose}/>
+        <Tags.Background className={show ? 'active' : ''} onClick={handleClose}/>
     </>
     
 }

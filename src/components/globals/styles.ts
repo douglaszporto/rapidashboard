@@ -317,8 +317,8 @@ export const UserName  = styled.div`
 
 export const ProfileWrapper  = styled.div`
     position: absolute;
-    top: 1rem;
-    right: 2rem;
+    top: 0;
+    right: 0;
     width: 15rem;
     font-size: 1rem;
     display: flex;

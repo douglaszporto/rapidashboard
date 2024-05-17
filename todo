@@ -10,9 +10,9 @@ Conversion to Component Library:
     ✔ components - layout - Tabs.tsx @done(24-05-07 23:54)
     ✔ components - items - Paginator.tsx @done(24-05-08 00:19)
     ✔ components - globals - Menu.tsx @done(24-05-08 01:06)
-    ☐ components - globals - Modal.tsx
-    ☐ components - globals - SimpleTopbar.tsx
-    ☐ components - globals - Topbar.tsx
+    ✔ components - globals - Modal.tsx @done(24-05-16 21:30)
+    ✔ components - globals - SimpleTopbar.tsx @done(24-05-16 22:29)
+    ✔ components - globals - Topbar.tsx @done(24-05-16 23:23)
 
     ☐ components - datashow - emptyState.tsx
     ☐ components - datashow - filterbar.ts
