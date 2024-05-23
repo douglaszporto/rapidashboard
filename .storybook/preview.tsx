@@ -2,6 +2,7 @@ import React from 'react';
 import type { Preview } from "@storybook/react";
 
 import '../src/index.css';
+import './calendar.css';
 
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
