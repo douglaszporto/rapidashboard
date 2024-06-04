@@ -1,15 +1,14 @@
 {
   "name": "rapidashboard",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple react lib for building dashboards",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types.d.ts",
   "files": ["/dist"],
   "scripts": {
-    "build": "tsc && vite build",
-    "rollup": "rollup -c --bundleConfigAsCjs",
+    "rollup": "rollup -c --bundleConfigAsCjs && node ./build.cjs",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -49,9 +48,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^8.0.10",
     "tslib": "^2.6.2",
-    "typescript": "^5.4.2",
-    "vite": "^5.2.12",
-    "vite-plugin-dts": "^3.9.1"
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "history": "^5.3.0",
