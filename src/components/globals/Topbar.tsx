@@ -1,11 +1,11 @@
-import { FormEvent, MouseEvent, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
+import { FormEvent, MouseEvent, ReactNode, useEffect, useRef, useState } from "react";
 import Icon from "@mdi/react";
 import { mdiMenu } from "@mdi/js";
 
 import * as Tags from './styles';
 import { Row } from "../layout/Row";
 
-interface TopbarProps {
+export interface TopbarProps {
     helpLabel?: string,
     items?: Array<{action: (e: MouseEvent<HTMLAnchorElement>)=>void, label:string}>,
     photo?: string,

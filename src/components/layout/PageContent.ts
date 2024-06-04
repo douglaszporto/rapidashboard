@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-interface PageContentProps {
+export interface PageContentProps {
     align?: string;
     justify?: string;
     direction?: string;

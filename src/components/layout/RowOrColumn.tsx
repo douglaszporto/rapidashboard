@@ -1,7 +1,7 @@
 import { ComponentType, HTMLProps } from "react";
 import styled from "styled-components"
 
-interface RowOrColumnProps extends Omit<HTMLProps<HTMLDivElement>,'children'> {
+export interface RowOrColumnProps extends Omit<HTMLProps<HTMLDivElement>,'children'> {
     rowAlign?: string;
     rowJustify?: string;
     rowMargin?: string;

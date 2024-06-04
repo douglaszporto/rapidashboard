@@ -6,7 +6,7 @@ import { Translate, i18n } from '../i18n/Translate';
 import { MenuElement, MenuBackground, Header, Logo, BackButton, MenuItems, Item } from './styles';
 
 type MenuItemType = {key:string, label:string, icon:string};
-interface MenuProps {
+export interface MenuProps {
     items:MenuItemType[];
     location: {pathname:string};
     logoUrl?: string;

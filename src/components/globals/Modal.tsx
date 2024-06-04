@@ -2,7 +2,7 @@ import * as Tags from './styles';
 
 type ReactContent = JSX.Element | JSX.Element[] | undefined;
 
-interface ModalProps {
+export interface ModalProps {
     content?: ReactContent;
     show?: boolean;
     onClose?: Function;

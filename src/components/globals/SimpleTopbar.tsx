@@ -6,7 +6,7 @@ import * as Tags from './styles';
 import { Row } from "../layout";
 
 
-interface SimpleTopbarProps {
+export interface SimpleTopbarProps {
     items: Array<{action: (e: MouseEvent<HTMLAnchorElement>)=>void, label:string}>,
     photo?: string,
     userName?: string,

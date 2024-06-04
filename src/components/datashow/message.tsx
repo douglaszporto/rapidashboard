@@ -4,7 +4,7 @@ import { mdiCheck, mdiClose } from '@mdi/js';
 
 import * as Tags from './styles';
 
-interface MessageProps {
+export interface MessageProps {
     messages?: {content:string, messageType:string}[];
     onPop?: () => void;
 }

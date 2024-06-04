@@ -1,7 +1,7 @@
 import * as Tags from './styles';
 import { Translate } from '../i18n/Translate';
 
-interface LoadingProps {
+export interface LoadingProps {
     loading: string[];
 }
 

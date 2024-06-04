@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-interface GridProps {
+export interface GridProps {
     align?: string;
     justify?: string;
     margin?: string;
