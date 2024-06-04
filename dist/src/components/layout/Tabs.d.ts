@@ -1,5 +1,4 @@
-import { HTMLProps } from 'react';
-
+import { HTMLProps } from "react";
 type TabsProps = Omit<HTMLProps<HTMLDivElement>, 'value' | 'onChange'> & {
     items: {
         label: string;

@@ -1,13 +1,13 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<Omit<import('react').HTMLProps<HTMLTextAreaElement>, "onChange" | "value"> & {
+    component: import("react").FC<Omit<import("react").HTMLProps<HTMLTextAreaElement>, "onChange" | "value"> & {
         uid: string;
         value?: any;
         labelUpload?: string | undefined;
         multiple?: boolean | undefined;
-        externalFiles: import('../../../src/components/forms/upload').FileItemExternal[];
+        externalFiles: import("../../../src/components/forms/upload").FileItemExternal[];
         horizontal?: boolean | undefined;
         onChange?: Function | undefined;
         onRemoveFileExternal?: ((id: string) => void) | undefined;

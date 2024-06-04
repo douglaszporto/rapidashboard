@@ -1,12 +1,12 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<import('../../../src/components/layout/RowOrColumn').RowOrColumnProps>;
+    component: import("react").FC<import("../../../src/components/layout/RowOrColumn").RowOrColumnProps>;
     parameters: {
         layout: string;
     };
-    render: (args: import('../../../src/components/layout/RowOrColumn').RowOrColumnProps) => import("react/jsx-runtime").JSX.Element;
+    render: (args: import("../../../src/components/layout/RowOrColumn").RowOrColumnProps) => import("react/jsx-runtime").JSX.Element;
     args: {
         children: import("react/jsx-runtime").JSX.Element[];
     };

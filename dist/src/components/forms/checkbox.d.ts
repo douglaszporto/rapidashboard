@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type CheckboxProps = HTMLProps<HTMLDivElement> & {
     uid: string;
     label: string;

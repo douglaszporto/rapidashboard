@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<import('react').HTMLProps<HTMLButtonElement> & {
+    component: import("react").FC<import("react").HTMLProps<HTMLButtonElement> & {
         icon?: string | undefined;
         onClick?: Function | undefined;
         color?: string | undefined;
@@ -16,7 +16,7 @@ declare const meta: {
     parameters: {
         layout: string;
     };
-    render: (args: import('react').HTMLProps<HTMLButtonElement> & {
+    render: (args: import("react").HTMLProps<HTMLButtonElement> & {
         icon?: string | undefined;
         onClick?: Function | undefined;
         color?: string | undefined;

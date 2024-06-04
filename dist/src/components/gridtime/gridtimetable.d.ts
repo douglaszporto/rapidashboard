@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 interface EventProps {
     id: string;
     status: string;

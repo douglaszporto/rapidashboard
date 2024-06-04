@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type UploadProps = Omit<HTMLProps<HTMLTextAreaElement>, 'value' | 'onChange'> & {
     uid: string;
     value?: any;

@@ -7,4 +7,4 @@ export interface GridProps {
     mobileMargin?: string;
     columns?: number;
 }
-export declare const Grid: import('styled-components').IStyledComponent<"web", import('styled-components/dist/types').Substitute<import('react').DetailedHTMLProps<import('react').HTMLAttributes<HTMLDivElement>, HTMLDivElement>, GridProps>>;
+export declare const Grid: import("styled-components").IStyledComponent<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, GridProps>>;

@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type GridTypeHeaderProps = Omit<HTMLProps<HTMLDivElement>, 'start'> & {
     start: Date;
     viewmode: 'MONTH' | '2WEEK' | 'WEEK';

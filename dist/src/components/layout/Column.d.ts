@@ -1,5 +1,4 @@
-import { HTMLProps } from 'react';
-
+import { HTMLProps } from "react";
 export interface ColumnProps extends HTMLProps<HTMLDivElement> {
     align?: string;
     justify?: string;

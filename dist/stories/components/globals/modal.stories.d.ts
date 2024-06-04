@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<import('../../../src/components/globals/Modal').ModalProps>;
+    component: import("react").FC<import("../../../src/components/globals/Modal").ModalProps>;
     parameters: {
         layout: string;
     };

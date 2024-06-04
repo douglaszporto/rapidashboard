@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: ({ page, total, onPageChange, ...props }: import('react').HTMLProps<HTMLDivElement> & {
+    component: ({ page, total, onPageChange, ...props }: import("react").HTMLProps<HTMLDivElement> & {
         page: number;
         total: number;
         onPageChange: Function;

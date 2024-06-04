@@ -1,6 +1,5 @@
 import { HTMLProps, FocusEvent } from 'react';
 import { FormError } from '../../types/FormError.type';
-
 type SelectPagedProps = Omit<HTMLProps<HTMLSelectElement>, 'onClick' | 'onFocus' | 'onBlur' | 'onChange'> & {
     uid: string;
     labelValue?: string;

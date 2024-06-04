@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type RadioProps = HTMLProps<HTMLDivElement> & {
     uid: string;
     labelContent?: any;

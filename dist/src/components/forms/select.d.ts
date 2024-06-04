@@ -1,6 +1,5 @@
 import { HTMLProps } from 'react';
 import { FormError } from '../../types/FormError.type';
-
 type SelectProps = Omit<HTMLProps<HTMLSelectElement>, 'width'> & {
     uid: string;
     width?: string | number;

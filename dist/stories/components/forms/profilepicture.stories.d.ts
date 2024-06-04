@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<Omit<import('react').HTMLProps<HTMLDivElement>, "onChange"> & {
+    component: import("react").FC<Omit<import("react").HTMLProps<HTMLDivElement>, "onChange"> & {
         labelDrag?: string | undefined;
         labelOr?: string | undefined;
         labelMaxSize?: string | undefined;
@@ -14,7 +14,7 @@ declare const meta: {
     parameters: {
         layout: string;
     };
-    render: (args: Omit<import('react').HTMLProps<HTMLDivElement>, "onChange"> & {
+    render: (args: Omit<import("react").HTMLProps<HTMLDivElement>, "onChange"> & {
         labelDrag?: string | undefined;
         labelOr?: string | undefined;
         labelMaxSize?: string | undefined;

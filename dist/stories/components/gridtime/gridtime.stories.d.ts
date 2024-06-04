@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<Omit<import('react').HTMLProps<HTMLDivElement>, "start" | "end"> & {
+    component: import("react").FC<Omit<import("react").HTMLProps<HTMLDivElement>, "start" | "end"> & {
         start: Date;
         end: Date;
         refDate: Date;
@@ -22,7 +22,7 @@ declare const meta: {
     parameters: {
         layout: string;
     };
-    render: (args: Omit<import('react').HTMLProps<HTMLDivElement>, "start" | "end"> & {
+    render: (args: Omit<import("react").HTMLProps<HTMLDivElement>, "start" | "end"> & {
         start: Date;
         end: Date;
         refDate: Date;

@@ -19,7 +19,8 @@
     "allowImportingTsExtensions": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "declaration": true
+    "declaration": true,
+    "declarationDir": "dist",
   },
   "include": ["src", "tests", "stories"]
 }

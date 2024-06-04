@@ -1,5 +1,4 @@
 import { ReactElement } from 'react';
-
 type EmptyStateProps = {
     title: string | ReactElement | ReactElement[];
     icon: string;

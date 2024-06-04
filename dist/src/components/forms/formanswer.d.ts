@@ -1,5 +1,5 @@
+/// <reference types="react" />
 import { QuestionsType } from './formbuilder';
-
 type FormAnswerType = {
     value: any;
     onChange: Function;

@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type GridTimeProps<T = any> = Omit<HTMLProps<HTMLDivElement>, 'start' | 'end'> & {
     start: Date;
     end: Date;

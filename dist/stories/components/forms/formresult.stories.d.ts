@@ -1,17 +1,17 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<{
+    component: import("react").FC<{
         value: any;
-        form: import('../../../src').QuestionsType[];
+        form: import("../../../src").QuestionsType[];
     }>;
     parameters: {
         layout: string;
     };
     render: (args: {
         value: any;
-        form: import('../../../src').QuestionsType[];
+        form: import("../../../src").QuestionsType[];
     }) => import("react/jsx-runtime").JSX.Element;
     args: {
         value: {

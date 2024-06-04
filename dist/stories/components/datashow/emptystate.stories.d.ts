@@ -1,9 +1,9 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<{
-        title: string | import('react').ReactElement<any, string | import('react').JSXElementConstructor<any>> | import('react').ReactElement<any, string | import('react').JSXElementConstructor<any>>[];
+    component: import("react").FC<{
+        title: string | import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>[];
         icon: string;
         size?: number | undefined;
         margin?: string | undefined;

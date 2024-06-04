@@ -1,6 +1,5 @@
 import { HTMLProps, MutableRefObject } from 'react';
 import { FormError } from '../../types/FormError.type';
-
 type InputProps = Omit<HTMLProps<HTMLInputElement>, 'ref'> & {
     uid: string;
     depencencies?: Array<any>;

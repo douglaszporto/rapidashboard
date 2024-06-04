@@ -1,6 +1,5 @@
 import { HTMLProps } from 'react';
 import { FormError } from '../../types/FormError.type';
-
 type DateInputProps = HTMLProps<HTMLInputElement> & {
     uid: string;
     locale?: string;

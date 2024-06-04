@@ -1,6 +1,5 @@
 import { HTMLProps } from 'react';
 import { FormError } from '../../types/FormError.type';
-
 type PhoneInputProps = HTMLProps<HTMLInputElement> & {
     uid: string;
     depencencies?: Array<any>;

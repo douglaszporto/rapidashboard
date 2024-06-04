@@ -1,5 +1,4 @@
-import { HTMLProps, ReactElement, ReactNode } from 'react';
-
+import { HTMLProps, ReactElement, ReactNode } from "react";
 export type CardProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
     title?: string | string[] | ReactNode | ReactNode[] | ReactElement | ReactElement[];
 };

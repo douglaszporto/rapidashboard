@@ -1,5 +1,4 @@
-import { HTMLProps } from 'react';
-
+import { HTMLProps } from "react";
 type PaginatorProps = HTMLProps<HTMLDivElement> & {
     page: number;
     total: number;

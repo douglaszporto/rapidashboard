@@ -1,5 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
-
+import { MouseEvent, ReactNode } from "react";
 export interface TopbarProps {
     helpLabel?: string;
     items?: Array<{

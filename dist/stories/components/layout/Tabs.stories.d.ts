@@ -1,8 +1,8 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<Omit<import('react').HTMLProps<HTMLDivElement>, "onChange" | "value"> & {
+    component: import("react").FC<Omit<import("react").HTMLProps<HTMLDivElement>, "onChange" | "value"> & {
         items: {
             label: string;
             id: string;
@@ -13,7 +13,7 @@ declare const meta: {
     parameters: {
         layout: string;
     };
-    render: (args: Omit<import('react').HTMLProps<HTMLDivElement>, "onChange" | "value"> & {
+    render: (args: Omit<import("react").HTMLProps<HTMLDivElement>, "onChange" | "value"> & {
         items: {
             label: string;
             id: string;

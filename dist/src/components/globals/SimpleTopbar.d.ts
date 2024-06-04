@@ -1,5 +1,4 @@
-import { MouseEvent } from 'react';
-
+import { MouseEvent } from "react";
 export interface SimpleTopbarProps {
     items: Array<{
         action: (e: MouseEvent<HTMLAnchorElement>) => void;

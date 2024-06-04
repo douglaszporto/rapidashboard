@@ -1,12 +1,12 @@
-import { StoryObj } from '@storybook/react';
-
+/// <reference types="react" />
+import type { StoryObj } from "@storybook/react";
 declare const meta: {
     title: string;
-    component: import('react').FC<Omit<import('react').HTMLProps<HTMLInputElement>, "onChange" | "value"> & {
+    component: import("react").FC<Omit<import("react").HTMLProps<HTMLInputElement>, "onChange" | "value"> & {
         uid: string;
         value?: number | undefined;
         depencencies?: any[] | undefined;
-        formError?: import('../../../src/types/FormError.type').FormError | undefined;
+        formError?: import("../../../src/types/FormError.type").FormError | undefined;
         onValidate?: ((value: string | null) => string | boolean) | null | undefined;
         onChange?: ((value?: number | undefined) => any) | undefined;
     }>;

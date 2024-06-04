@@ -1,5 +1,4 @@
 import { HTMLProps } from 'react';
-
 type ProfilePictureProps = Omit<HTMLProps<HTMLDivElement>, 'onChange'> & {
     labelDrag?: string;
     labelOr?: string;
