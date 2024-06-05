@@ -10,6 +10,7 @@ export interface MenuProps {
         pathname: string;
     };
     logoUrl?: string;
+    labelHome?: string;
     menuOpened: boolean;
     navigate: (url: string, options?: any) => void;
     onClose: Function;

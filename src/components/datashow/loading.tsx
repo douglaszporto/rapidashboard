@@ -1,14 +1,14 @@
 import * as Tags from './styles';
-import { Translate } from '../i18n/Translate';
 
 export interface LoadingProps {
     loading: string[];
+    labelLoading?: string;
 }
 
-export const Loading:React.FC<LoadingProps> = ({loading}:LoadingProps) => {
+export const Loading:React.FC<LoadingProps> = ({loading, labelLoading}:LoadingProps) => {
 
     return <Tags.Loading className={ loading && loading.length ? 'active' : ''}>
-        <Translate path="loading" />
+        {labelLoading ?? 'Carregando'}
     </Tags.Loading>
     
 }

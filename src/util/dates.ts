@@ -1,6 +1,10 @@
-import i18next from 'i18next';
-
 import { TimeFromUTCToView } from './time';
+
+let DateLocale = 'pt-BR';
+
+export const SetDateLocale = (locale:string): void => {
+    DateLocale = locale;
+}
 
 export const DateStrFromUTCToView = (value?: string, showTime?: boolean): string => {
     if (!value) {
@@ -24,7 +28,7 @@ export const DateStrFromUTCToView = (value?: string, showTime?: boolean): string
         };
     }
 
-    return Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR',  config).format(dt);
+    return Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  config).format(dt);
 }
 
 export const DateFromUTCToView = (value: Date | undefined, showTime?: boolean, options?:{noValue?:string}): string => {
@@ -43,7 +47,7 @@ export const DateFromUTCToView = (value: Date | undefined, showTime?: boolean, o
         };
     }
 
-    return Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR',  config).format(value);
+    return Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  config).format(value);
 }
 
 export const DateFromISOToDayMonth = (value: string | undefined): string => {
@@ -51,7 +55,7 @@ export const DateFromISOToDayMonth = (value: string | undefined): string => {
         return '';
     }    
     let dt = new Date(value);
-    return Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR',  {day:"2-digit", month:"2-digit"}).format(dt);
+    return Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  {day:"2-digit", month:"2-digit"}).format(dt);
 }
 
 export const DateFromDateToMonthView = (value?: Date): string => {
@@ -64,7 +68,7 @@ export const DateFromDateToMonthView = (value?: Date): string => {
         year: 'numeric',
     };
 
-    let result = Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR',  config).format(value);
+    let result = Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  config).format(value);
 
     return result.substring(0,1).toUpperCase() + result.substring(1);
 }
@@ -83,14 +87,32 @@ export const DateFromDateToMonthYearView = (value?: Date): string => {
     return `${month}/${year}`;
 }
 
-export const DateFromMonthAndYearToMonthView = (month: number, year: number): string => {
+const month_i18n = ["01","02","03","04","05","06","07","08","09","10","11","12"] as const;
+type MonthI18n = typeof month_i18n[number];
+export const DateFromMonthAndYearToMonthView = (month: number, year: number, i18n:{[K in MonthI18n]?:string}={}): string => {
     if (!month || month < 1 || month > 11) {
         return "";
     }
 
-    let monthStr = "0"+String(month);
+    let defaultMonth = {
+        "01": "Jan",
+        "02": "Fev",
+        "03": "Mar",
+        "04": "Abr",
+        "05": "Mai",
+        "06": "Jun",
+        "07": "Jul",
+        "08": "Ago",
+        "09": "Set",
+        "10": "Out",
+        "11": "Nov",
+        "12": "Dez",
+    };
 
-    return `${i18next.t("dates.monthShort."+monthStr.substring(monthStr.length - 2))}/${year}`;
+    let monthStr = String(month).padStart(2, '0');
+    let monthName = i18n[monthStr as MonthI18n] ?? defaultMonth[monthStr as MonthI18n] ?? monthStr;
+
+    return `${monthName}/${year}`;
 }
 
 export const DateFromViewToUTC = (value: string): string | undefined => {
@@ -134,14 +156,13 @@ export const DateFromViewToDate = (value: string | undefined | null): Date | und
     return new Date(year, month-1, day, 0, 0, 0, 0);
 }
 
-export const DateFromISOToTimeAt = (value: string | undefined | null): string | undefined => {
+export const DateFromISOToTimeAt = (value: string | undefined | null, i18n:string = ""): string | undefined => {
     if (!value || !value.length || value.length < 10) {
         return undefined;
     }
     
     const dt = new Date(value);
-    const text:string = i18next.t("dates.timeAt");
-    return text?.replace("$1", DateFromUTCToView(dt) ?? '').replace("$2", TimeFromUTCToView(dt) ?? '')
+    return i18n.replace("$1", DateFromUTCToView(dt) ?? '').replace("$2", TimeFromUTCToView(dt) ?? '')
 }
 
 export const CalculateYearsFromDate = (value: string): number => {
@@ -204,12 +225,26 @@ export const DayNameFromInternal = (value: string, i18n: Function): string => {
     return i18n('dates.dayname.'+date.getUTCDay());
 }
 
-export const DayNameFromISO = (value?: string, fullname?:boolean): string => {
+const days = ["0","1","2","3","4","5","6"] as const;
+type Days = typeof days[number];
+export const DayNameFromISO = (value?: string, i18n:{[K in Days]?:string}={}): string => {
     if (!value) {
         return "";
     }
+
+    const defaultDay = {
+        "0": "Domingo",
+        "1": "Segunda",
+        "2": "Terça",
+        "3": "Quarta",
+        "4": "Quinta",
+        "5": "Sexta",
+        "6": "Sábado",
+    };
+
     const dt = new Date(value);
-    return i18next.t(`dates.dayname${fullname ? 'full' : ''}.${dt.getUTCDay()}`);
+    const day = String(dt.getUTCDay()) as Days;
+    return i18n[day] ?? defaultDay[day] ?? '';
 }
 
 export const DateIsSameDay = (dt1:Date, dt2:Date): boolean => {
@@ -218,12 +253,12 @@ export const DateIsSameDay = (dt1:Date, dt2:Date): boolean => {
            dt1.getDate() === dt2.getDate();
 }
 
-export const DateIntervalString = (dt1?:Date, dt2?:Date): string => {
+export const DateIntervalString = (dt1?:Date, dt2?:Date, i18n:string = "De $1 até $2"): string => {
     if (!dt1 || isNaN(dt1.getTime()) || !dt2 || isNaN(dt2.getTime())) {
         return "";
     }
 
-    const str = i18next.t("dates.intervalFull");
+    const str = i18n;
     if (!str || typeof str !== 'string') {
         return "";
     }
@@ -238,7 +273,7 @@ export const DateIntervalString = (dt1?:Date, dt2?:Date): string => {
         showDay = 'numeric';
     }
 
-    const formater = Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR', {dateStyle, month:showMonth, day:showDay});
+    const formater = Intl.DateTimeFormat(DateLocale ?? 'pt-BR', {dateStyle, month:showMonth, day:showDay});
     
     const part1 = formater.format(dt1);
     const part2 = formater.format(dt2);
@@ -293,5 +328,5 @@ export const DateFromISOToWeekday = (dt?:string): string => {
         return "";
     }
 
-    return Intl.DateTimeFormat(i18next.t("locale") ?? 'pt-BR',  {day:"2-digit", month:"2-digit", year:"numeric", weekday:"long"}).format(date);
+    return Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  {day:"2-digit", month:"2-digit", year:"numeric", weekday:"long"}).format(date);
 }

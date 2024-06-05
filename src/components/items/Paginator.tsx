@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import { ComponentType, HTMLProps } from "react";
 import Icon from '@mdi/react';
+import styled from "styled-components";
 import {mdiChevronLeft, mdiChevronRight} from '@mdi/js';
 
-import { i18n } from '../i18n/Translate';
-import { ComponentType, HTMLProps } from "react";
 
 type ReactChild = string | ComponentType<any>;
 
@@ -62,10 +61,11 @@ const Button = styled.button`
 type PaginatorProps = HTMLProps<HTMLDivElement> & {
     page: number;
     total: number;
+    labelPaginator?: string;
     onPageChange: Function;
 }
 
-export const Paginator = ({page, total, onPageChange, ...props}: PaginatorProps) => {
+export const Paginator = ({page, total, labelPaginator, onPageChange, ...props}: PaginatorProps) => {
 
     const handleChangePage = (newPage: number) => {
         if (newPage > 0 && newPage <= total) {
@@ -77,7 +77,7 @@ export const Paginator = ({page, total, onPageChange, ...props}: PaginatorProps)
         <Button className={page <= 1 ? 'disabled' : ''} onClick={()=>{handleChangePage(page-1)}}>
             <Icon path={mdiChevronLeft} size={1} />
         </Button>
-        {i18n("paginator.label")
+        {(labelPaginator ?? '$1 de $2')
             .replace("$1",String(page))
             .replace("$2",String(Math.max(total, 1)))
         }

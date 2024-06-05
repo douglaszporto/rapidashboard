@@ -94,15 +94,10 @@ declare const Tabs: React.FC<TabsProps>;
 type PaginatorProps = HTMLProps<HTMLDivElement> & {
     page: number;
     total: number;
+    labelPaginator?: string;
     onPageChange: Function;
 };
-declare const Paginator: ({ page, total, onPageChange, ...props }: PaginatorProps) => react_jsx_runtime.JSX.Element;
-
-type TranslateProps = {
-    path: string;
-};
-declare const Translate: ({ path }: TranslateProps) => react_jsx_runtime.JSX.Element;
-declare const i18n: (path: string) => string;
+declare const Paginator: ({ page, total, labelPaginator, onPageChange, ...props }: PaginatorProps) => react_jsx_runtime.JSX.Element;
 
 type GridTimeProps<T = any> = Omit<HTMLProps<HTMLDivElement>, 'start' | 'end'> & {
     start: Date;
@@ -168,6 +163,7 @@ interface MenuProps {
         pathname: string;
     };
     logoUrl?: string;
+    labelHome?: string;
     menuOpened: boolean;
     navigate: (url: string, options?: any) => void;
     onClose: Function;
@@ -477,6 +473,7 @@ declare const FilterRow: styled_components.IStyledComponent<"web", styled_compon
 
 interface LoadingProps {
     loading: string[];
+    labelLoading?: string;
 }
 declare const Loading: React.FC<LoadingProps>;
 
@@ -513,6 +510,6 @@ type TimecheckProps = {
 };
 declare const Timecheck: React.FC<TimecheckProps>;
 
-export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, Card, type CardProps, Checkbox, Column, type ColumnProps, CopyInput, CreditCardInput, DateInput, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FormAnswer, FormBuilder, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, Modal, type ModalProps, MoneyInput, MonthInput, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Translate, Upload, i18n };
+export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, Card, type CardProps, Checkbox, Column, type ColumnProps, CopyInput, CreditCardInput, DateInput, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FormAnswer, FormBuilder, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, Modal, type ModalProps, MoneyInput, MonthInput, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Upload };
 
 declare module 'rapidashboard';

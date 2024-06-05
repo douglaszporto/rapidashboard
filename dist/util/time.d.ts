@@ -7,4 +7,8 @@ export declare const TimeDiffInHoursPercent: (value1: number, value2: number) =>
 export declare const TimeFromTimeToIntMinutes: (time: string) => number | undefined;
 export declare const TimeFromIntMinutesToTime: (time: number | undefined, separator?: string) => string | undefined;
 export declare const TimeFromUTCToView: (dt: Date | undefined, separator?: string) => string | undefined;
-export declare const TimeDiffAsText: (start: number, end: number) => string;
+export declare const TimeDiffAsText: (start: number, end: number, i18n?: {
+    hour?: string;
+    minute?: string;
+    time?: string;
+}) => string;

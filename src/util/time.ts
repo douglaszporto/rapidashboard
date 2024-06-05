@@ -1,9 +1,6 @@
 /**
  * @deprecated Use TimeFromIntMinutesToTime instead
 */
-
-import i18next from "i18next";
-
 export const TimeFromIntToHour = (value: number): string => {
     let hour = String("0"+value);
     hour = hour.substring(hour.length - 2, hour.length);
@@ -78,25 +75,31 @@ export const TimeFromUTCToView = (dt:Date | undefined, separator?:string): strin
     return `${h}${separator ?? 'h'}${m}`;
 };
 
-export const TimeDiffAsText = (start:number, end:number) => {
+export const TimeDiffAsText = (start:number, end:number, i18n:{hour?:string, minute?:string, time?:string} = {}) => {
     const diff = end-start;
     if (diff < 0) {
         return '';
     }
 
+    const defaultI18n = {
+        hour: '$1 horas',
+        minute: '$2 minutos',
+        time: '$1 horas e $2 minutos'
+    };
+
     const hours = Math.floor(diff/60);
     const minutes = diff % 60;
 
     if (hours > 0 && minutes === 0) {
-        return hours + ' ' + i18next.t(`time.${hours === 1 ? 'hour' : 'hours'}`);
+        return (i18n.hour ?? defaultI18n.hour).replace('$1', String(hours));
     }
 
     if (hours === 0 && minutes > 0) {
-        return minutes + ' ' + i18next.t('time.minutes');
+        return (i18n.minute ?? defaultI18n.minute).replace('$2', String(minutes));
     }
 
     if (hours > 0 && minutes > 0) {
-        return i18next.t('time.mix').replace('$1', String(hours)).replace('$2', String(minutes));
+        return (i18n.time ?? defaultI18n.time).replace('$1', String(hours)).replace('$2', String(minutes));
     }
 
     return '-';

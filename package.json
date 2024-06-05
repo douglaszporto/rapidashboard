@@ -1,6 +1,6 @@
 {
   "name": "rapidashboard",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple react lib for building dashboards",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -51,12 +51,8 @@
     "typescript": "^5.4.2"
   },
   "peerDependencies": {
-    "history": "^5.3.0",
-    "i18next": "^23.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^14.1.1",
-    "react-router-dom": "^6.22.3",
     "styled-components": "^6.1.8"
   },
   "repository": {
