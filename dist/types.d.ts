@@ -510,6 +510,87 @@ type TimecheckProps = {
 };
 declare const Timecheck: React.FC<TimecheckProps>;
 
-export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, Card, type CardProps, Checkbox, Column, type ColumnProps, CopyInput, CreditCardInput, DateInput, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FormAnswer, FormBuilder, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, Modal, type ModalProps, MoneyInput, MonthInput, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Upload };
+declare const SetDateLocale: (locale: string) => void;
+declare const DateStrFromUTCToView: (value?: string, showTime?: boolean) => string;
+declare const DateFromUTCToView: (value: Date | undefined, showTime?: boolean, options?: {
+    noValue?: string;
+}) => string;
+declare const DateFromISOToDayMonth: (value: string | undefined) => string;
+declare const DateFromDateToMonthView: (value?: Date) => string;
+declare const DateFromDateToMonthYearView: (value?: Date) => string;
+declare const DateFromMonthAndYearToMonthView: (month: number, year: number, i18n?: {
+    "01"?: string | undefined;
+    "02"?: string | undefined;
+    "03"?: string | undefined;
+    "04"?: string | undefined;
+    "05"?: string | undefined;
+    "06"?: string | undefined;
+    "07"?: string | undefined;
+    "08"?: string | undefined;
+    "09"?: string | undefined;
+    10?: string | undefined;
+    11?: string | undefined;
+    12?: string | undefined;
+}) => string;
+declare const DateFromViewToUTC: (value: string) => string | undefined;
+declare const DateFromDateToUTC: (dt?: Date | undefined) => string | undefined;
+declare const DateFromUTCToDate: (value: string | undefined) => Date | undefined;
+declare const DateFromViewToDate: (value: string | undefined | null) => Date | undefined;
+declare const DateFromISOToTimeAt: (value: string | undefined | null, i18n?: string) => string | undefined;
+declare const CalculateYearsFromDate: (value: string) => number;
+declare const CalculateYearsFromISO: (value: string) => number;
+/**
+ * @deprecated
+*/
+declare const DayFromInternal: (value: string) => string;
+declare const MonthNameShortFromInternal: (value: string, i18n: Function) => string;
+declare const DayNameFromInternal: (value: string, i18n: Function) => string;
+declare const DayNameFromISO: (value?: string, i18n?: {
+    0?: string | undefined;
+    2?: string | undefined;
+    1?: string | undefined;
+    3?: string | undefined;
+    4?: string | undefined;
+    5?: string | undefined;
+    6?: string | undefined;
+}) => string;
+declare const DateIsSameDay: (dt1: Date, dt2: Date) => boolean;
+declare const DateIntervalString: (dt1?: Date, dt2?: Date, i18n?: string) => string;
+declare const DateSplitParts: (dt?: Date) => number[];
+declare const DaysUntil: (dt?: string) => number;
+declare const DateFromISOToWeekday: (dt?: string) => string;
+
+declare const MoneyFromNumberToString: (value: number, hideCurrency?: boolean, hideCents?: boolean) => string;
+declare const MoneyFromStringToNumber: (num: string) => number;
+
+declare const strPad: (str: string, char: string, ammout: number) => string;
+declare const capitalize: (str: string) => string;
+declare const FirstUppercase: (str: string) => string;
+
+/**
+ * @deprecated Use TimeFromIntMinutesToTime instead
+*/
+declare const TimeFromIntToHour: (value: number) => string;
+declare const TimeDiffFromStringsInHours: (value1: string, value2: string) => string;
+declare const TimeDiffInHoursPercent: (value1: number, value2: number) => number;
+declare const TimeFromTimeToIntMinutes: (time: string) => number | undefined;
+declare const TimeFromIntMinutesToTime: (time: number | undefined, separator?: string) => string | undefined;
+declare const TimeFromUTCToView: (dt: Date | undefined, separator?: string) => string | undefined;
+declare const TimeDiffAsText: (start: number, end: number, i18n?: {
+    hour?: string;
+    minute?: string;
+    time?: string;
+}) => string;
+
+declare const MinMax: (v: number, min: number, max: number) => number;
+declare const RequestJsonAsForm: (obj: {
+    [key: string]: any;
+}) => FormData;
+declare const isElementInViewport: (el: HTMLElement) => boolean;
+declare const classSet: (obj: {
+    [i: string]: any;
+}) => string;
+
+export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, CalculateYearsFromDate, CalculateYearsFromISO, Card, type CardProps, Checkbox, Column, type ColumnProps, CopyInput, CreditCardInput, DateFromDateToMonthView, DateFromDateToMonthYearView, DateFromDateToUTC, DateFromISOToDayMonth, DateFromISOToTimeAt, DateFromISOToWeekday, DateFromMonthAndYearToMonthView, DateFromUTCToDate, DateFromUTCToView, DateFromViewToDate, DateFromViewToUTC, DateInput, DateIntervalString, DateIsSameDay, DateSplitParts, DateStrFromUTCToView, DayFromInternal, DayNameFromISO, DayNameFromInternal, DaysUntil, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FirstUppercase, FormAnswer, FormBuilder, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, MinMax, Modal, type ModalProps, MoneyFromNumberToString, MoneyFromStringToNumber, MoneyInput, MonthInput, MonthNameShortFromInternal, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, RequestJsonAsForm, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SetDateLocale, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeDiffAsText, TimeDiffFromStringsInHours, TimeDiffInHoursPercent, TimeFromIntMinutesToTime, TimeFromIntToHour, TimeFromTimeToIntMinutes, TimeFromUTCToView, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Upload, capitalize, classSet, isElementInViewport, strPad };
 
 declare module 'rapidashboard';
