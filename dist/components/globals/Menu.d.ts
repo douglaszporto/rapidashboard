@@ -2,6 +2,7 @@
 type MenuItemType = {
     key: string;
     label: string;
+    id: string;
     icon: string;
 };
 export interface MenuProps {

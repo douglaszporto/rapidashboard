@@ -155,6 +155,7 @@ declare const GridTimeTable: React.FC<GridTimeTableProps<EventProps>>;
 type MenuItemType = {
     key: string;
     label: string;
+    id: string;
     icon: string;
 };
 interface MenuProps {

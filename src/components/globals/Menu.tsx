@@ -4,7 +4,7 @@ import { mdiArrowLeft, mdiHome } from '@mdi/js';
 
 import { MenuElement, MenuBackground, Header, Logo, BackButton, MenuItems, Item } from './styles';
 
-type MenuItemType = {key:string, label:string, icon:string};
+type MenuItemType = {key:string, label:string, id:string, icon:string};
 export interface MenuProps {
     items:MenuItemType[];
     location: {pathname:string};
@@ -37,12 +37,12 @@ export const Menu: React.FC<MenuProps> = ({items, onClose, menuOpened, location,
         let itemValue = "home";
         for(let item of items) {
             if (location.pathname.startsWith(item.key)) {
-                itemValue = item.label;
+                itemValue = item.id;
                 break;
             }
         }
         setCurrentItem(itemValue);
-    }, [location]);
+    }, [location, items]);
 
 
     return <>
@@ -57,7 +57,7 @@ export const Menu: React.FC<MenuProps> = ({items, onClose, menuOpened, location,
                     <Icon style={{marginRight:'0.5rem'}} size={1.2} path={mdiHome} />
                     {labelHome ?? 'Home'}
                 </Item>
-                {items.map((v,i) => <Item key={i} className={isSelected(v.label)} onClick={()=>{handleClick(v.key)}}>
+                {items.map((v,i) => <Item key={i} className={isSelected(v.id)} onClick={()=>{handleClick(v.key)}}>
                     <Icon style={{marginRight:'0.5rem'}} size={1.2} path={v.icon} />
                     {v.label}
                 </Item>)}
