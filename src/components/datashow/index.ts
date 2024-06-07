@@ -1,3 +1,4 @@
+export * from './circularProgress';
 export * from './emptyState';
 export * from './filterbar';
 export * from './loading';
