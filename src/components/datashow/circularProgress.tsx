@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface CircularProgressProps {
+export interface CircularProgressProps {
     size: number;
     progress: number;
     width?: number;
@@ -8,7 +8,7 @@ interface CircularProgressProps {
     fgColor?: string;
 }
 
-const CircularProgress:React.FC<CircularProgressProps> = ({size, progress, width, bgColor, fgColor}:CircularProgressProps) => {
+export const CircularProgress:React.FC<CircularProgressProps> = ({size, progress, width, bgColor, fgColor}:CircularProgressProps) => {
     const r = (size-(width ?? 20))/2;
     const circumference = 2 * Math.PI * r;
     const filled = circumference*progress/100;
@@ -20,5 +20,3 @@ const CircularProgress:React.FC<CircularProgressProps> = ({size, progress, width
         </svg>
     );
 };
-
-export default CircularProgress;

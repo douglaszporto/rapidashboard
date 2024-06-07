@@ -1,7 +1,7 @@
 import * as styled_components from 'styled-components';
 import * as styled_components_dist_types from 'styled-components/dist/types';
 import * as react from 'react';
-import { HTMLProps, ReactNode, ReactElement, MouseEvent, MutableRefObject, FocusEvent } from 'react';
+import react__default, { HTMLProps, ReactNode, ReactElement, MouseEvent, MutableRefObject, FocusEvent } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type BreadcrumbProps = {
@@ -460,6 +460,15 @@ type FileItemExternal = {
 };
 declare const Upload: React.FC<UploadProps>;
 
+interface CircularProgressProps {
+    size: number;
+    progress: number;
+    width?: number;
+    bgColor?: string;
+    fgColor?: string;
+}
+declare const CircularProgress: react__default.FC<CircularProgressProps>;
+
 type EmptyStateProps = {
     title: string | ReactElement | ReactElement[];
     icon: string;
@@ -592,6 +601,6 @@ declare const classSet: (obj: {
     [i: string]: any;
 }) => string;
 
-export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, CalculateYearsFromDate, CalculateYearsFromISO, Card, type CardProps, Checkbox, Column, type ColumnProps, CopyInput, CreditCardInput, DateFromDateToMonthView, DateFromDateToMonthYearView, DateFromDateToUTC, DateFromISOToDayMonth, DateFromISOToTimeAt, DateFromISOToWeekday, DateFromMonthAndYearToMonthView, DateFromUTCToDate, DateFromUTCToView, DateFromViewToDate, DateFromViewToUTC, DateInput, DateIntervalString, DateIsSameDay, DateSplitParts, DateStrFromUTCToView, DayFromInternal, DayNameFromISO, DayNameFromInternal, DaysUntil, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FirstUppercase, FormAnswer, FormBuilder, type FormError, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, MinMax, Modal, type ModalProps, MoneyFromNumberToString, MoneyFromStringToNumber, MoneyInput, MonthInput, MonthNameShortFromInternal, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, RequestJsonAsForm, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SetDateLocale, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeDiffAsText, TimeDiffFromStringsInHours, TimeDiffInHoursPercent, TimeFromIntMinutesToTime, TimeFromIntToHour, TimeFromTimeToIntMinutes, TimeFromUTCToView, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Upload, capitalize, classSet, isElementInViewport, strPad };
+export { Breadcrumb, Button, ButtonRowElement as ButtonRow, CPFInput, CalculateYearsFromDate, CalculateYearsFromISO, Card, type CardProps, Checkbox, CircularProgress, type CircularProgressProps, Column, type ColumnProps, CopyInput, CreditCardInput, DateFromDateToMonthView, DateFromDateToMonthYearView, DateFromDateToUTC, DateFromISOToDayMonth, DateFromISOToTimeAt, DateFromISOToWeekday, DateFromMonthAndYearToMonthView, DateFromUTCToDate, DateFromUTCToView, DateFromViewToDate, DateFromViewToUTC, DateInput, DateIntervalString, DateIsSameDay, DateSplitParts, DateStrFromUTCToView, DayFromInternal, DayNameFromISO, DayNameFromInternal, DaysUntil, DueMonthInput, EmptyState, type FileItem, type FileItemExternal, FilterBar, FilterRow, FirstUppercase, FormAnswer, FormBuilder, type FormError, FormResult, Grid, type GridProps, GridTime, GridTimeHeader, GridTimeTable, Input, IntegerInput, Label, Loading, type LoadingProps, Menu, type MenuProps, Message, type MessageProps, MinMax, Modal, type ModalProps, MoneyFromNumberToString, MoneyFromStringToNumber, MoneyInput, MonthInput, MonthNameShortFromInternal, PageContent, type PageContentProps, Paginator, PhoneInput, ProfilePicture, type QuestionOptionType, type QuestionsType, Radio, RequestJsonAsForm, Row, RowElement, RowOrColumn, RowOrColumnElement, type RowOrColumnProps, type RowProps, Select, SelectPaged, SetDateLocale, SimpleTopbar, type SimpleTopbarProps, Tabs, Tag, Textarea, TimeDiffAsText, TimeDiffFromStringsInHours, TimeDiffInHoursPercent, TimeFromIntMinutesToTime, TimeFromIntToHour, TimeFromTimeToIntMinutes, TimeFromUTCToView, TimeInput, Timecheck, Title, TitleBar, Topbar, type TopbarProps, Upload, capitalize, classSet, isElementInViewport, strPad };
 
 declare module 'rapidashboard';
