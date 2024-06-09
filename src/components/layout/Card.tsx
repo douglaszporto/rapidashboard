@@ -43,8 +43,8 @@ export type CardProps = Omit<HTMLProps<HTMLDivElement>, 'title'> & {
     title?: string | string[] | ReactNode | ReactNode[] | ReactElement | ReactElement[];
 };
 
-export const Card: React.FC<CardProps> = ({className, title, children}: CardProps) => {
-    return <CardElement className={className} >
+export const Card: React.FC<CardProps> = ({className, title, children, ...props}: CardProps) => {
+    return <CardElement className={className} {...props}>
         {title ? <Title>{title}</Title> : null}
         <Content>{children}</Content>
     </CardElement>
