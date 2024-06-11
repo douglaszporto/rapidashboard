@@ -215,7 +215,9 @@ export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, dis
         }
 
         setDays(days);
-    }, []);	
+    }, [dateStart, dateEnd, disableBefore, events]);	
+
+
     return (
         <AgendaWrapper>
             <AgendaTimeColumn>
