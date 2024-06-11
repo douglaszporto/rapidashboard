@@ -295,20 +295,17 @@ export const DateSplitParts = (dt?:Date): number[] => {
     ];
 }
 
-export const DaysUntil = (dt?:string): number => {
-    if (!dt || dt.length!==10) {
+export const DaysUntil = (dt?:string|Date): number => {
+    if (!dt || (typeof dt==="string" && dt.length!==10) || (dt instanceof Date && isNaN(dt.getTime()))) {
         return -1;
     }
 
-    let date1 = new Date(dt+'T00:00:00.000Z');
+    let date1 = typeof dt==="string" ? new Date(dt+'T00:00:00.000Z') : new Date(dt);
     let date2 = new Date();
     date2.setHours(0);
     date2.setMinutes(0);
     date2.setSeconds(0);
     date2.setMilliseconds(0);
-
-    console.log(date1);
-    console.log(date2);
 
     if (isNaN(date1.getTime())) {
         return -1;
@@ -329,4 +326,18 @@ export const DateFromISOToWeekday = (dt?:string): string => {
     }
 
     return Intl.DateTimeFormat(DateLocale ?? 'pt-BR',  {day:"2-digit", month:"2-digit", year:"numeric", weekday:"long"}).format(date);
+}
+
+export const DaysBetween = (dt1:Date, dt2:Date): number => {
+    if (isNaN(dt1.getTime()) || isNaN(dt2.getTime())) {
+        return -1;
+    }
+
+    let date1 = new Date(dt1);
+    let date2 = new Date(dt2);
+
+    date1.setHours(0,0,0,0);
+    date2.setHours(0,0,0,0);
+
+    return Math.round((date1.getTime() - date2.getTime())/86400000);
 }

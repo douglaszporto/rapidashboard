@@ -5,3 +5,4 @@ export * from './gridtime';
 export * from './globals';
 export * from './forms';
 export * from './datashow';
+export * from './agenda';

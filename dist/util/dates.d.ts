@@ -49,6 +49,7 @@ export declare const DayNameFromISO: (value?: string, i18n?: {
 export declare const DateIsSameDay: (dt1: Date, dt2: Date) => boolean;
 export declare const DateIntervalString: (dt1?: Date, dt2?: Date, i18n?: string) => string;
 export declare const DateSplitParts: (dt?: Date) => number[];
-export declare const DaysUntil: (dt?: string) => number;
+export declare const DaysUntil: (dt?: string | Date) => number;
 export declare const DateFromISOToWeekday: (dt?: string) => string;
+export declare const DaysBetween: (dt1: Date, dt2: Date) => number;
 export {};

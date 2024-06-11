@@ -24,6 +24,7 @@
   --theme-color-background-filter: #a8e5ff;
   --theme-color-font-input: #000;
   --theme-color-border-input: #ccc;
+  --theme-color-border-weak: #ddd;
   --theme-color-font-error: #c00;
   --theme-color-blue: #84b6e4;
   --theme-color-green: #8dcf8d;
@@ -111,6 +112,7 @@ input:focus-visible {
     --theme-color-primary-transparent: rgba(134, 59, 209, .5);
     --theme-color-font-input: #fff;
     --theme-color-border-input: #666;
+    --theme-color-border-weak: #555;
     --theme-color-font-error: #f44;
     --theme-color-background-filter: #004867;
     --theme-color-value-blue: #4087ca;
@@ -143,6 +145,7 @@ input:focus-visible {
     --theme-color-primary-transparent: rgba(134, 59, 209, .5);
     --theme-color-font-input: #fff;
     --theme-color-border-input: #666;
+    --theme-color-border-weak: #555;
     --theme-color-font-error: #f44;
     --theme-color-background-filter: #004867;
     --theme-color-blue: #00519C;
