@@ -165,6 +165,7 @@ export interface AgendaProps {
     events?: EventItem[];
     eventAdapter?: (event: any) => JSX.Element;
     labelDay?: Record<string,string>;
+    lockedWeekdays?: number[];
     disableBefore?: Date;
     onClick?: (date: Date, hour: number) => void;
     onEventClick?: (event: EventItem) => void;
@@ -173,7 +174,7 @@ export interface AgendaProps {
 const createArray = (length: number) => Array.from({length}, (_, index) => index);
 const today = new Date();
 
-export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, disableBefore, events, eventAdapter, onEventClick, onClick}) => {
+export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, lockedWeekdays, disableBefore, events, eventAdapter, onEventClick, onClick}) => {
 
     const [times, setTimes] = React.useState<number>(0);
     const [hourStart, setHourStart] = React.useState<number>(0);
@@ -227,7 +228,7 @@ export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, dis
                 ))}
             </AgendaTimeColumn>
             {days.map((day, index) => (
-                <AgendaDayColumn key={index} className={disableBefore && DaysBetween(day, disableBefore) < 1 ? 'blocked' : ''}>
+                <AgendaDayColumn key={index} className={((disableBefore && DaysBetween(day, disableBefore) < 1) || (lockedWeekdays && lockedWeekdays.includes(day.getUTCDay()))) ? 'blocked' : ''}>
                     <AgendaHeader className={DateIsSameDay(day, today) ? 'today' : ''}>
                         <AgendaHeaderName>{(labelDay ? labelDay[day.getDay()] : '') ?? ''}</AgendaHeaderName>
                         <AgendaHeaderNumber>{String(day.getDate()).padStart(2,'0')}</AgendaHeaderNumber>

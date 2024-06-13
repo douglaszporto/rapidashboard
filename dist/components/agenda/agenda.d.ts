@@ -13,6 +13,7 @@ export interface AgendaProps {
     events?: EventItem[];
     eventAdapter?: (event: any) => JSX.Element;
     labelDay?: Record<string, string>;
+    lockedWeekdays?: number[];
     disableBefore?: Date;
     onClick?: (date: Date, hour: number) => void;
     onEventClick?: (event: EventItem) => void;

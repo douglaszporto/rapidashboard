@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Agenda, EventItem } from "../../../src/components/agenda/agenda";
 
 let dateStart = new Date();
+dateStart.setDate(dateStart.getDate() + 3);
 dateStart.setHours(6, 0, 0, 0);
 
 let dateEnd = new Date();
@@ -52,6 +53,7 @@ const meta = {
         5: "Sex",
         6: "Sáb",
       },
+      lockedWeekdays: [0,6],
       onClick: (date: Date, hour: number) => {
         console.log(date, hour);
       },
