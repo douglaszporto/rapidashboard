@@ -208,7 +208,9 @@ interface SimpleTopbarProps {
     }>;
     photo?: string;
     userName?: string;
+    helpLabel?: string;
     onMenuOpen?: Function;
+    onOpenHelp?: Function;
 }
 declare const SimpleTopbar: React.FC<SimpleTopbarProps>;
 

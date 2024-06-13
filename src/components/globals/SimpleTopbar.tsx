@@ -10,10 +10,12 @@ export interface SimpleTopbarProps {
     items: Array<{action: (e: MouseEvent<HTMLAnchorElement>)=>void, label:string}>,
     photo?: string,
     userName?: string,
+    helpLabel?: string,
     onMenuOpen?: Function,
+    onOpenHelp?: Function,
 }
 
-export const SimpleTopbar: React.FC<SimpleTopbarProps> = ({photo, items, userName, onMenuOpen}:SimpleTopbarProps) => {
+export const SimpleTopbar: React.FC<SimpleTopbarProps> = ({photo, items, helpLabel, userName, onMenuOpen, onOpenHelp}:SimpleTopbarProps) => {
 
     const [showProfile, setShowProfile] = useState<boolean>(false);
     
@@ -37,6 +39,13 @@ export const SimpleTopbar: React.FC<SimpleTopbarProps> = ({photo, items, userNam
         onMenuOpen && onMenuOpen();
     };
 
+    const handleOpenHelp = (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        onOpenHelp && onOpenHelp();        
+    }
+
     
     useEffect(()=>{
         const fnProfile = ()=> {
@@ -56,6 +65,7 @@ export const SimpleTopbar: React.FC<SimpleTopbarProps> = ({photo, items, userNam
             <Icon size={1} path={mdiMenu} />
         </Tags.MenuButton>
         <Tags.TopbarUser >
+            {helpLabel ? <Tags.Link href="#" onClick={handleOpenHelp}>{helpLabel}</Tags.Link> : null }
             {showProfile ? <Tags.ProfileWrapper>
                 <Row align="center" justify="flex-left" style={{padding:"0.85rem"}}>
                     <Tags.UserName>{userName}</Tags.UserName>

@@ -1,6 +1,6 @@
 {
   "name": "rapidashboard",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A simple react lib for building dashboards",
   "type": "module",
   "main": "dist/index.cjs.js",
