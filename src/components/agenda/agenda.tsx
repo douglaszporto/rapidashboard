@@ -181,8 +181,12 @@ export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, loc
     const [days, setDays] = React.useState<Date[]>([]);
 
 
+    const isDayBlocked = (day: Date) => {
+        return (disableBefore && DaysBetween(day, disableBefore) < 1) || (lockedWeekdays && lockedWeekdays.includes(day.getUTCDay()));
+    }
+
     const handleClick = (date: Date, hour: number) => {
-        if (disableBefore && DaysBetween(date, disableBefore) < 1) {
+        if (isDayBlocked(date)) {
             return;
         }
 
@@ -228,7 +232,7 @@ export const Agenda: React.FC<AgendaProps> = ({dateStart, dateEnd, labelDay, loc
                 ))}
             </AgendaTimeColumn>
             {days.map((day, index) => (
-                <AgendaDayColumn key={index} className={((disableBefore && DaysBetween(day, disableBefore) < 1) || (lockedWeekdays && lockedWeekdays.includes(day.getUTCDay()))) ? 'blocked' : ''}>
+                <AgendaDayColumn key={index} className={isDayBlocked(day) ? 'blocked' : ''}>
                     <AgendaHeader className={DateIsSameDay(day, today) ? 'today' : ''}>
                         <AgendaHeaderName>{(labelDay ? labelDay[day.getDay()] : '') ?? ''}</AgendaHeaderName>
                         <AgendaHeaderNumber>{String(day.getDate()).padStart(2,'0')}</AgendaHeaderNumber>
